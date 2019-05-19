@@ -11,7 +11,7 @@ class BaseAction:
         wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_element(location_by, location_value))
 
-    def find_elements(self, location, timeout=10, poll=1):
+    def find_elements(self, location, timeout=5, poll=1):
         location_by, location_value = location
         wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_elements(location_by, location_value))
