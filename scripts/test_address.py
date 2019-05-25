@@ -16,7 +16,7 @@ class TestAddress:
         time.sleep(2)
         self.page.home.click_mine()
         time.sleep(2)
-        TouchAction(self.driver).tap(x=1000, y=133).perform()  # 点击
+        TouchAction(self.driver).tap(x=1000, y=133).perform()  # 点击设置
         # self.page.mine.click_setting()
         self.page.setting.click_address_manager()
         self.page.address.click_add_btn()
@@ -26,3 +26,7 @@ class TestAddress:
         self.page.add_address.input_detail_address("田园小区一号楼")
         # self.page.add_address.click_check_box()
         self.page.add_address.click_save_btn()
+        res = self.page.address.find_toast("成功")
+        print(res)
+
+        assert "成功" in res

@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -11,7 +12,7 @@ class BaseAction:
         wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_element(location_by, location_value))
 
-    def find_elements(self, location, timeout=5, poll=1):
+    def find_elements(self, location, timeout=10, poll=1):
         location_by, location_value = location
         wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_elements(location_by, location_value))
@@ -27,3 +28,10 @@ class BaseAction:
 
     def press_enter(self):
         self.driver.press_keycode(66)
+
+    def find_toast(self, message, timeout=10, poll=0.1):
+        # location = "//*contains[@text,'" + message + "']"  # 错误典范
+        location = "//*[contains(@text,'" + message + "')]"
+        element = WebDriverWait(self.driver, timeout, poll) \
+            .until(lambda x: x.find_element(By.XPATH, location))
+        return element.text

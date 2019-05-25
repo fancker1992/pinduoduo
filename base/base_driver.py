@@ -15,12 +15,13 @@ def init_driver():
     # desired_caps['appActivity'] = '.activity.MainActivity'
     # desired_caps['appPackage'] = 'com.tencent.mm'
     # desired_caps['appActivity'] = '.ui.LauncherUI'
+
+    # 获取toast 框架
+    desired_caps['automationName'] = 'Uiautomator2'
     # 中文
     desired_caps['unicodeKeyboard'] = True
     desired_caps['resetKeyboard'] = True
     # 免重置
     desired_caps['noReset'] = True
-    # toast
-    # desired_caps['automationName'] = 'Uiautomator2'
 
     return webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
