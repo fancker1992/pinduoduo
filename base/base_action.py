@@ -21,6 +21,7 @@ class BaseAction:
         self.find_element(location).click()
 
     def input(self, location, text):
+        self.find_element(location).clear()
         self.find_element(location).send_keys(text)
 
     def press_back(self):

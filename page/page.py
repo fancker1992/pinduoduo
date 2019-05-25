@@ -2,7 +2,9 @@ from page.add_address_page import AddAddressPage
 from page.address_page import AddressPage
 from page.edit_address_page import EditAddressPage
 from page.home_page import HomePage
+from page.login_page import LoginPage
 from page.mine_page import MinePage
+from page.no_pwd_login_page import NoPwdLoginPage
 from page.setting_page import SettingPage
 
 
@@ -33,3 +35,11 @@ class Page:
     @property
     def add_address(self):
         return AddAddressPage(self.driver)
+
+    @property
+    def login(self):
+        return LoginPage(self.driver)
+
+    @property
+    def no_pwd_login(self):
+        return NoPwdLoginPage(self.driver)
