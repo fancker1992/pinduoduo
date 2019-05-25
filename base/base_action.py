@@ -35,3 +35,10 @@ class BaseAction:
         element = WebDriverWait(self.driver, timeout, poll) \
             .until(lambda x: x.find_element(By.XPATH, location))
         return element.text
+
+    def is_exit_toast(self, message):
+        try:
+            self.find_toast(message)
+            return True
+        except Exception:
+            return False
