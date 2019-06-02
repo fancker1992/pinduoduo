@@ -37,3 +37,4 @@ class TestLogin:
         self.page.login.input_user_name(username)
         self.page.login.input_pass_word(password)
         assert not self.page.login.is_button_enabled()
+
