@@ -28,3 +28,12 @@ class TestLogin:
         self.page.login.input_user_name(user_name)
         self.page.login.input_pass_word(password)
         # self.page.login.click_login_btn()
+
+    @pytest.mark.parametrize("args", analyze_with_file("login_data", "test_logout"))
+    def test_logout(self, args):
+        username = args["username"]
+        password = args["password"]
+        self.to_login_page()
+        self.page.login.input_user_name(username)
+        self.page.login.input_pass_word(password)
+        assert not self.page.login.is_button_enabled()

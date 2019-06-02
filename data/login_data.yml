@@ -13,3 +13,12 @@ test_login:
     username: "17611412709"
     password: "45678"
     expect: "密码错误"
+
+
+test_logout:
+  test_logout_001:
+    username: "123456"
+    password: ""
+  test_logout_002:
+    username: ""
+    password: "123456"

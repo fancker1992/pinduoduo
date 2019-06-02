@@ -16,3 +16,6 @@ class LoginPage(BaseAction):
 
     def click_login_btn(self):
         self.click(self.login_btn)
+
+    def is_button_enabled(self):
+        self.is_enabled(self.login_btn)

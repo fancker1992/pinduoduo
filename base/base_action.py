@@ -43,3 +43,6 @@ class BaseAction:
             return True
         except Exception:
             return False
+
+    def is_enabled(self, location):
+        return self.find_element(location).get_attribute("enabled") == "true"
